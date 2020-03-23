@@ -7,6 +7,7 @@ RUN apk update && \
     apk upgrade && \
     apk add git
 RUN npm install -g npm && \
+    npm install -g npm-check-updates && \
     npm install -g core-js@latest && \
     npm install -g @vue/cli && \
     npm install -g @vue/cli-init && \
