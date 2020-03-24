@@ -9,4 +9,4 @@ before_script: pip install docker-compose
 before_script: npm install --save-dev docker-compose
 
 script:
-  - docker-compose run backend sh -c "python djangoproject/manage.py test && flake8"
+  - docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
