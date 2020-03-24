@@ -12,6 +12,7 @@ services:
 
 before_script: pip install docker-compose
 before_script: npm install --save-dev docker-compose
+before_script: yarn add --dev jest
 
 cache:
   yarn: true
