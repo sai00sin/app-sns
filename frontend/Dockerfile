@@ -12,7 +12,6 @@ RUN npm install -g npm && \
     npm install -g @vue/cli && \
     npm install -g @vue/cli-init && \
     npm install -g nuxt create-nuxt-app
-    yarn add --dev babel-jest @babel/core @babel/preset-env && \
     yarn add --dev jest && \
     yarn global add jest && \
     npm install jest --global
