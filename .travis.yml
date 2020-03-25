@@ -29,5 +29,5 @@ install:
   - yarn
 
 script:
-  - docker-compose run frontend sh -c "cd nuxtproject && yarn test"
+  - docker-compose run frontend sh -c "cd nuxtproject && yarn dev"
   #- docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
