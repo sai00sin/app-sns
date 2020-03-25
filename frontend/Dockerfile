@@ -14,7 +14,7 @@ RUN npm install -g npm && \
     npm install -g nuxt create-nuxt-app && \
     yarn add --dev jest && \
     yarn global add jest && \
-    npm install jest --global
+    npm install -g jest
 
 
 ENV LANG C.UTF-8
