@@ -7,17 +7,18 @@ language: node_js
 node_js:
   - 12
 
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+
 services:
   - docker
 
 before_script: pip install docker-compose
 before_script: npm install --save-dev docker-compose
+before_script: npm install -g yarn
 before_script: yarn add --dev jest
-
-cache:
-  yarn: true
-  directories:
-    - 'node_modules'
 
 script:
   - docker-compose run frontend sh -c "cd nuxtproject && yarn test"
