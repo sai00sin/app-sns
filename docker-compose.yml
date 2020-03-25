@@ -27,7 +27,7 @@ services:
       - '3000:3000'
     volumes:
       - ./frontend/src:/usr/src/app
-    command: [sh, -c, "cd nuxtproject/ && yarn dev"]
+    # command: [sh, -c, "cd nuxtproject/ && yarn dev"]
 
   nginx:
     image: nginx:1.17

@@ -16,18 +16,20 @@ cache:
     - 'node_modules'
 
 
-before_script: npm i -D jest jest-vue-preprocessor babel-jest vue-test-utils
+# before_script: npm i -D jest jest-vue-preprocessor babel-jest vue-test-utils
 before_script: pip install docker-compose
-before_script: npm install -g jest
-before_script: npm install --save-dev jest-cli
-before_script: yarn add @nuxtjs/axios
-before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
-before_script: yarn global add jest
+before_script: npm install --save-dev docker-compose
 
-install:
-  - node -v
-  - npm i -g yarn
-  - yarn
+# before_script: npm install -g jest
+# before_script: npm install --save-dev jest-cli
+# before_script: yarn add @nuxtjs/axios
+# before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
+# before_script: yarn global add jest
+
+# install:
+#   - node -v
+#   - npm i -g yarn
+#   - yarn
 
 script:
   - docker-compose run frontend sh -c "cd nuxtproject && yarn dev"

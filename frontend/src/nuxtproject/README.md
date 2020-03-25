@@ -1,6 +1,6 @@
 # nuxtproject
 
-> My beautiful Nuxt.js project
+> My sublime Nuxt.js project
 
 ## Build Setup
 
