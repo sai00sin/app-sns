@@ -26,8 +26,8 @@ before_script: yarn add -D @vue/test-utils lodash.clonedeep
 before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 
 
-# before_script: npm install -g jest
-# before_script: npm install --save-dev jest-cli
+before_script: npm install -g jest
+before_script: npm install --save-dev jest-cli
 # before_script: yarn add @nuxtjs/axios
 # before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 # before_script: yarn global add jest
