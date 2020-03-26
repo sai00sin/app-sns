@@ -33,6 +33,8 @@ before_script: npm install --save-dev jest-cli
 # before_script: yarn global add jest
 
 install:
+  - bundle install
+  - nvm install node
   - node -v
   - npm i -g yarn
   - yarn
