@@ -36,5 +36,6 @@ before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 #   - yarn
 
 script:
+  - docker-compose build
   - docker-compose run frontend sh -c "cd nuxtproject && yarn test"
   #- docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
