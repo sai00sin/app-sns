@@ -20,6 +20,7 @@ cache:
 before_script: pip install docker-compose
 before_script: npm install --save-dev docker-compose
 before_script: npm install -g jest
+before_script: npm install --save-dev jest
 before_script: yarn add -D jest
 before_script: yarn add -D @vue/test-utils lodash.clonedeep
 before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
@@ -38,5 +39,5 @@ before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 
 script:
   - docker-compose build
-  - docker-compose run frontend sh -c "cd nuxtproject && yarn test"
+  - docker-compose run frontend sh -c "cd nuxtproject && npm run test"
   #- docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
