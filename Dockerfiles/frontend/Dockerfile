@@ -6,8 +6,9 @@ WORKDIR /app
 #     npm install -g npm && \
 #     npm install -g create-nuxt-app
 
-RUN apk update && \
-    npm install -g npm
+RUN apk update
+RUN npm install -g npm && \
+    npm install -g create-nuxt-app
 
 
 ENV HOST 0.0.0.0
