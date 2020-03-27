@@ -7,7 +7,7 @@ services:
   - docker
 
 env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
+  - DOCKER_COMPOSE_VERSION=1.8.0
 
 cache:
   yarn: true
@@ -15,11 +15,12 @@ cache:
     - 'node_modules'
 
 before_script:
-  - npm install --save-dev jest-cli
-  - yarn add --dev jest
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose up -d
 
 script:
-  - docker-compose build
-  - docker-compose up -d
-  - docker exec -it frontend ls node_modules
+  - docker-compose exec -it frontend yarn test
 
