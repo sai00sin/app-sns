@@ -15,6 +15,7 @@ cache:
     - 'node_modules'
 
 before_script:
+  - npm install --save-dev jest-cli
   - yarn add --dev jest
 
 script:
