@@ -11,8 +11,8 @@ RUN npm install -g npm && \
     npm install -g core-js@latest && \
     npm install -g @vue/cli && \
     npm install -g @vue/cli-init && \
-    npm install -g nuxt create-nuxt-app
-
+    npm install -g nuxt create-nuxt-app && \
+    yarn add --dev jest
 
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo

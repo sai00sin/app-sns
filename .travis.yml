@@ -10,6 +10,10 @@ node_js:
 services:
   - docker
 
+before_install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version version-number
+  - export PATH="$HOME/.yarn/bin:$PATH"
+
 cache:
   yarn: true
   directories:
@@ -31,7 +35,7 @@ cache:
 # before_script: yarn add @nuxtjs/axios
 # before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 # before_script: yarn global add jest
-before_script: yarn add --dev jest
+# before_script: yarn add --dev jest
 
 # install:
 #   - node -v
@@ -40,5 +44,5 @@ before_script: yarn add --dev jest
 
 script:
   - docker-compose build
-  - docker-compose run frontend sh -c "cd nuxtproject && ls"
+  - docker-compose run frontend sh -c "cd nuxtproject && ls && yarn test"
   #- docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
