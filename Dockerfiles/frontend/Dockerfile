@@ -7,7 +7,7 @@ WORKDIR /app
 #     npm install -g create-nuxt-app
 
 RUN apk update
-RUN npm install
+RUN npm install && \
     npm install -g create-nuxt-app
 
 
