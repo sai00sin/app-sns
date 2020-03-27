@@ -19,4 +19,5 @@ before_script:
   - yarn add --dev jest
 
 script:
-  - docker-compose run frontend sh -c "./node_modules/.bin/jest --updateSnapshot"
+  - docker-compose build
+  - docker exec frontend yarn test

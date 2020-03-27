@@ -3,9 +3,10 @@ version: '3'
 services:
 
   frontend:
+    container_name: frontend
     build: ./Dockerfiles/frontend
     tty: true
-    command: npm run dev
+    # command: npm run dev
     ports:
       - '3000:3000'
     volumes:
