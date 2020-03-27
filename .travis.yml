@@ -12,4 +12,4 @@ cache:
     - 'node_modules'
 
 script:
-  - docker-compose run frontend sh -c "yarn test"
+  - docker-compose run frontend sh -c "ls"
