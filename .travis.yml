@@ -17,13 +17,13 @@ cache:
 
 
 # before_script: npm i -D jest jest-vue-preprocessor babel-jest vue-test-utils
-before_script: pip install docker-compose
-before_script: npm install --save-dev docker-compose
-before_script: npm install -g jest
-before_script: npm install --save-dev jest
-before_script: yarn add -D jest
-before_script: yarn add -D @vue/test-utils lodash.clonedeep
-before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
+# before_script: pip install docker-compose
+# before_script: npm install --save-dev docker-compose
+# before_script: npm install -g jest
+# before_script: npm install --save-dev jest
+# before_script: yarn add -D jest
+# before_script: yarn add -D @vue/test-utils lodash.clonedeep
+# before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 
 
 before_script: npm install -g jest
@@ -32,12 +32,10 @@ before_script: npm install --save-dev jest-cli
 # before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 # before_script: yarn global add jest
 
-install:
-  - bundle install
-  - nvm install node
-  - node -v
-  - npm i -g yarn
-  - yarn
+# install:
+#   - node -v
+#   - npm i -g yarn
+#   - yarn
 
 script:
   #- docker-compose build
