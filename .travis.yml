@@ -19,5 +19,5 @@ before_script:
   - yarn add --dev jest
 
 script:
-  - docker-compose run frontend sh -c "cd node_modules && ls"
+  - docker exec -it frontend ls node_modules
 
