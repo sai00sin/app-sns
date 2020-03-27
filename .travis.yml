@@ -15,11 +15,11 @@ cache:
     - 'node_modules'
 
 before_script:
-  - docker-compose build
-  - docker-compose up -d
   - npm install --save-dev jest-cli
   - yarn add --dev jest
 
 script:
+  - docker-compose build
+  - docker-compose up -d
   - docker exec -it frontend ls node_modules
 
