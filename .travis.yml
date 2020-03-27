@@ -26,11 +26,12 @@ cache:
 # before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 
 
-before_script: npm install -g jest
-before_script: npm install --save-dev jest-cli
+# before_script: npm install -g jest
+# before_script: npm install --save-dev jest-cli
 # before_script: yarn add @nuxtjs/axios
 # before_script: yarn add --dev babel-jest @babel/core @babel/preset-env
 # before_script: yarn global add jest
+before_script: yarn add --dev jest
 
 # install:
 #   - node -v
@@ -38,6 +39,6 @@ before_script: npm install --save-dev jest-cli
 #   - yarn
 
 script:
-  #- docker-compose build
+  - docker-compose build
   - docker-compose run frontend sh -c "cd nuxtproject && ls"
   #- docker-compose run backend sh -c "cd djangoproject && python manage.py test && flake8"
