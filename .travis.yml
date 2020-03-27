@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - 12
+
+services:
+  - docker
+
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+
+script:
+  - docker-compose run frontend sh -c "yarn test"
