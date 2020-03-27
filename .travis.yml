@@ -19,4 +19,5 @@ before_script:
   - yarn add --dev jest
 
 script:
-  - yarn test
+  - docker-compose run frontend sh -c "yarn test"
+
