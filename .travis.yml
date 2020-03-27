@@ -19,5 +19,4 @@ before_script:
   - yarn add --dev jest
 
 script:
-  - docker-compose build
-  - docker exec frontend yarn test
+  - yarn test
