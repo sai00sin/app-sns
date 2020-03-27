@@ -15,4 +15,4 @@ cache:
     - 'node_modules'
 
 script:
-  - docker-compose run frontend sh -c "ls frontend"
+  - docker-compose run frontend sh -c "ls"
