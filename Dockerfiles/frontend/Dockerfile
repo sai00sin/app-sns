@@ -1,4 +1,4 @@
-FROM node:10.14.1-alpine
+FROM node:12.13-alpine
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ WORKDIR /app
 #     npm install -g create-nuxt-app
 
 RUN apk update
-RUN npm install -g npm && \
+RUN npm install
     npm install -g create-nuxt-app
 
 
