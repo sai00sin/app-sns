@@ -5,7 +5,7 @@ services:
   frontend:
     build: ./Dockerfiles/frontend
     tty: true
-    command: npm run dev
+    command: yarn test
     ports:
       - '3000:3000'
     volumes:
