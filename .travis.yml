@@ -1,23 +1,13 @@
-language: node_js
-
-node_js:
-  - 12
+language: ruby
 
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.4.2
-
-cache:
-  yarn: true
-  directories:
-    - 'node_modules'
-
-before_script:
-  - npm install --save-dev jest-cli
-  - yarn add --dev jest
+before_install:
+- docker pull carlad/sinatra
+- docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+- docker ps -a
+- docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
 script:
-  - docker exec -it frontend ls node_modules
-
+- bundle exec rake test
