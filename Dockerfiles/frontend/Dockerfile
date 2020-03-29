@@ -1,6 +1,9 @@
 FROM node:12.13-alpine
 
 WORKDIR /app
+COPY package*.json /app
+
+
 
 # RUN apk update && \
 #     npm install -g npm && \
