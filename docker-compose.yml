@@ -4,11 +4,10 @@ services:
 
   frontend:
     container_name: frontend
-    build: ./Dockerfiles/frontend
+    build: 
+      context: .
+      dockerfile: ./Dockerfiles/frontend/Dockerfile
     tty: true
     command: npm run dev
     ports:
       - '3000:3000'
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules

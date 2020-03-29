@@ -1,15 +1,23 @@
-version: 2
+version: 2.1
 jobs:
-  build:
+ build:
     docker:
-      - image: circleci/node:8.9
-    working_directory: /app
+      - image: circleci/node:9.8.0-stretch-browsers
     steps:
       - checkout
-      - run: yarn
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
-      - run: yarn build
+      - setup_remote_docker
+      - run:
+          name: Docker Compose をインストール
+          command: |
+            curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+      - run:
+          name: コンテナを起動し、動作していることを検証
+          command:
+            docker-compose -f ./docker-compose.yml up --build -d
+      - run:
+          name: テスト
+          command:
+            docker exec -it frontend yarn test
+
