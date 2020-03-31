@@ -20,5 +20,6 @@ jobs:
           name: テスト
           command:
             # docker exec -it frontend yarn test
-            docker exec -it backend python manage.py test
+            # docker exec -it backend python manage.py test
+            ls
 

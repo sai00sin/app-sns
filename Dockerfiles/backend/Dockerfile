@@ -4,4 +4,4 @@ RUN mkdir /code
 WORKDIR /code
 COPY ./Dockerfiles/backend/requirements.txt /code/
 RUN pip install -r requirements.txt
-COPY ./backend /code/
+COPY ./backend /code
