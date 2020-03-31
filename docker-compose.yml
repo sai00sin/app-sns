@@ -45,5 +45,5 @@ services:
   #   depends_on:
   #     - frontend
 
-volumes:
-  django_data_volume:
+# volumes:
+#   django_data_volume:
