@@ -18,11 +18,7 @@ jobs:
           command:
             docker-compose -f ./docker-compose.yml build
       - run:
-          name: docker-compose up
-          command:
-            docker-compose -f ./docker-compose.yml up -d
-      - run:
           name: テスト
           command: |
-            docker exec backend python manage.py makemigrations
+            docker-compose run backend python manage.py makemigrations
 
