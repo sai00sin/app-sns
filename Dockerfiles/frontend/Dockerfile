@@ -1,7 +1,7 @@
 FROM node:12.13-alpine
 
-WORKDIR /app
-COPY ./frontend /app
+WORKDIR /usr/src/app
+COPY ./frontend /usr/src/app
 
 RUN apk update
 RUN npm install -g npm && \

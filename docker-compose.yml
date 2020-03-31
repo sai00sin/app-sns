@@ -2,12 +2,46 @@ version: '3'
 
 services:
 
-  frontend:
-    container_name: frontend
+  db:
+    container_name: django_db
+    image: postgres:11.2
+    volumes:
+      - django_data_volume:/var/lib/postgresql/data
+
+  backend:
+    container_name: backend
     build: 
       context: .
-      dockerfile: ./Dockerfiles/frontend/Dockerfile
+      dockerfile: ./Dockerfiles/backend/Dockerfile
     tty: true
-    command: npm run dev
     ports:
-      - '3000:3000'
+      - '8000:8000'
+    volumes:
+      - ./backend:/code
+    # command: bash -c 'python manage.py migrate && gunicorn backend.wsgi -b 0.0.0.0:8000'
+    command: bash -c 'python manage.py test'
+    depends_on:
+      - db
+
+  # frontend:
+  #   container_name: frontend
+  #   build: 
+  #     context: .
+  #     dockerfile: ./Dockerfiles/frontend/Dockerfile
+  #   tty: true
+  #   command: npm run dev
+  #   ports:
+  #     - '3000:3000'
+
+  # nginx:
+  #   image: nginx:1.17
+  #   container_name: nginx
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./nginx:/etc/nginx/conf.d
+  #   depends_on:
+  #     - frontend
+
+volumes:
+  django_data_volume:
