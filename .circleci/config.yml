@@ -29,17 +29,9 @@
 version: 2.1
 jobs:
  build:
-    docker: # run the steps with Docker
-      # CircleCI Python images available at: https://hub.docker.com/r/circleci/python/
-      - image: circleci/python:3.6.4
-        environment: # environment variables for primary container
-          PIPENV_VENV_IN_PROJECT: true
-          DATABASE_URL: postgresql://root@localhost/circle_test?sslmode=disable
-      # CircleCI PostgreSQL images available at: https://hub.docker.com/r/circleci/postgres/
-      - image: circleci/postgres:9.6.2
-        environment: # environment variables for the Postgres container.
-          POSTGRES_USER: root
-          POSTGRES_DB: circle_test
+    docker:
+      - image: circleci/node:9.8.0-stretch-browsers
+      - image: circleci/python:3.7
     steps:
       - checkout
       - setup_remote_docker
@@ -57,5 +49,5 @@ jobs:
           name: テスト
           command: |
             docker-compose run backend ls
-            docker-compose run backend python manage.py migrations
+            docker-compose run backend python manage.py makemigrations
 
