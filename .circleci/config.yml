@@ -19,7 +19,7 @@ jobs:
       - run:
           name: テスト
           command: |
-            # docker exec -it frontend yarn test
+            docker ps
             docker exec backend python manage.py makemigrations
             docker exec backend python manage.py migrate
             docker exec backend python manage.py test
