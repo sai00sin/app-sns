@@ -20,5 +20,6 @@ jobs:
       - run:
           name: テスト
           command: |
+            docker-compose run backend ls
             docker-compose run backend python manage.py makemigrations
 
