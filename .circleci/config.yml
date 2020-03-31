@@ -28,7 +28,8 @@
 
 version: 2.1
 jobs:
- build:
+  build:
+    machine: true
     docker:
       - image: circleci/node:9.8.0-stretch-browsers
       - image: circleci/python:3.7
