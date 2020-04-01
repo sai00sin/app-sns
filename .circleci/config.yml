@@ -45,31 +45,23 @@
 
 version: 2.1
 jobs:
-  build1:
+  one:
     docker:
-      - image: circleci/ruby:2.4-node
-      - image: circleci/postgres:9.4.12-alpine
+      - image: circleci/ruby:2.4.1
     steps:
       - checkout
-      paths:
-            - ~/circleci-demo-workflows
-
-  build2:
+      - run: echo "A first hello"
+      - run: sleep 25
+  two:
     docker:
-      - image: circleci/ruby:2.4-node
-      - image: circleci/postgres:9.4.12-alpine
+      - image: circleci/ruby:2.4.1
     steps:
-      - run:
-          name: テストを実行
-          command: make test
-
+      - checkout
+      - run: echo "A more familiar hi"
+      - run: sleep 15
 workflows:
   version: 2
-  build_and_test: # ワークフロー名
+  one_and_two:
     jobs:
-      - build1
-      - build2
-
-
-
-
+      - one
+      - two
