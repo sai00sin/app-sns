@@ -56,5 +56,4 @@ jobs:
       - run:
           name: テスト
           command: |
-            docker-compose run backend python manage.py test
             docker-compose run frontend yarn test
