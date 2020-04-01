@@ -45,7 +45,7 @@
 
 version: 2.1
 jobs:
-  backend:
+  build:
     machine: true
     steps:
       - checkout
@@ -54,8 +54,7 @@ jobs:
           command:
             docker-compose -f ./docker-compose.yml build
       - run:
-          name: test
+          name: テスト
           command: |
             docker-compose run backend python manage.py test
             docker-compose run frontend yarn test
-
