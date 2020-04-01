@@ -26,18 +26,54 @@
 
 
 
+# version: 2.1
+# jobs:
+#   build:
+#     machine: true
+#     steps:
+#       - checkout
+#       - run:
+#           name: docker-compose build
+#           command:
+#             docker-compose -f ./docker-compose.yml build
+#       - run:
+#           name: テスト
+#           command: |
+#             docker-compose run backend python manage.py test
+
+
+
 version: 2.1
 jobs:
-  build:
-    machine: true
+  build1:
+    docker:
+      - image: circleci/ruby:2.4-node
+      - image: circleci/postgres:9.4.12-alpine
     steps:
       - checkout
+      - save_cache: # キャッシュキーで依存関係をキャッシュします。
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+      paths:
+            - ~/circleci-demo-workflows
+
+  build2:
+    docker:
+      - image: circleci/ruby:2.4-node
+      - image: circleci/postgres:9.4.12-alpine
+    steps:
+      - restore_cache: # キャッシュされた依存関係を復元します。
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
       - run:
-          name: docker-compose build
-          command:
-            docker-compose -f ./docker-compose.yml build
-      - run:
-          name: テスト
-          command: |
-            docker-compose run backend python manage.py test
+          name: テストを実行
+          command: make test
+
+workflows:
+  version: 2
+  build_and_test: # ワークフロー名
+    jobs:
+      - build1
+      - build2
+
+
+
 
