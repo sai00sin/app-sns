@@ -25,25 +25,25 @@ services:
     depends_on:
       - db
 
-  # frontend:
-  #   container_name: frontend
-  #   build: 
-  #     context: .
-  #     dockerfile: ./Dockerfiles/frontend/Dockerfile
-  #   tty: true
-  #   command: npm run dev
-  #   ports:
-  #     - '3000:3000'
+  frontend:
+    container_name: frontend
+    build: 
+      context: .
+      dockerfile: ./Dockerfiles/frontend/Dockerfile
+    tty: true
+    command: npm run dev
+    ports:
+      - '3000:3000'
 
-  # nginx:
-  #   image: nginx:1.17
-  #   container_name: nginx
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./nginx:/etc/nginx/conf.d
-  #   depends_on:
-  #     - frontend
+  nginx:
+    image: nginx:1.17
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - frontend
 
 # volumes:
 #   django_data_volume:
