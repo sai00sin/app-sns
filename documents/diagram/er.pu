@@ -1,0 +1,27 @@
+@startuml 
+
+entity User {
+    * id <<PK>>
+    --
+    * sample
+}
+
+entity Article {
+    * id <<PK>>
+    --
+    * sample
+}
+
+entity Follow {
+    * id <<PK>>
+    --
+    * sample
+}
+
+entity Comment {
+    * id <<PK>>
+    --
+    * sample
+}
+
+@enduml
