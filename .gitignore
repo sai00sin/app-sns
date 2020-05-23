@@ -88,6 +88,8 @@ sw.*
 
 # Vim swap files
 *.swp
+
 *_bk*
 *migrations*
 *__pycache__*
+*.sqlite3
