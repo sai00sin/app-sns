@@ -1,11 +1,22 @@
 from rest_framework import serializers
-from .models import Sample, Message, Group, Friend, Good
 
-class SampleSerializer(serializers.ModelSerializer):
+from django.contrib.auth.models import User
+from .models import Book, Sample, Message, Group, Friend, Good
+
+
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Sample
-        fields = '__all__'
+        model = User
+        fields = ('username', 'password')
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        password = validated_data.pop('password')
+        user = User(**validated_data)
+        user.set_password(password)
+        user.save()
+        return user
 
 
 class MessageSerializer(serializers.ModelSerializer):
