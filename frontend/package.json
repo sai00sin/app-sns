@@ -5,7 +5,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "nuxt": "^2.12.1"
+    "nuxt": "^2.15.8"
   },
   "devDependencies": {
     "jest": "^25.2.4"
